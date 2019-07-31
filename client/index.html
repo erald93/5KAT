@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>5K</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <script
+        src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+        <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/functions.js"></script>
+    </head>
+
+    <body>
+
+        <h1>home page</h1>
+
+        
+
+
+
+        <div class="jumbotron text-center">
+            <h1>Pesekatesh bootstrap page</h1>
+            <p>Create or find a room !</p> 
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Room Name</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <button type="button" class="btn btn-primary">Check for Room</button>
+
+            <button type="button" class="btn btn-success">Create Room</button>
+
+            <!--Create or Join Room Form-->
+            <form onsubmit="login()">
+                <div class="form-row align-items-center">
+                  <div class="col-sm-3 my-1">
+                    <label class="sr-only" for="inlineFormInputName">Username</label>
+                    <input type="text" class="form-control" id="inlineFormInputName" placeholder="Username">
+                  </div>
+                  <div class="col-sm-3 my-1">
+                    <label class="sr-only" for="inlineFormInputGroupUsername">Room Name</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                      </div>
+                      <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Room Name">
+                    </div>
+                  </div>
+                  <div class="col-auto my-1">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+                      <label class="form-check-label" for="autoSizingCheck2">
+                        Remember me
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-auto my-1">
+                    <button type="submit" class="btn btn-primary">Create or Join</button>
+                  </div>
+                  <div class="col-auto my-1">
+                    <button  onclick="submit_by_name()" class="btn btn-primary">Create or Join onclick</button>
+                  </div>
+                </div>
+              </form>
+
+
+
+        </div>
+                
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-sm-4">
+                    <h3>Player 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                
+                <div class="col-sm-4">
+                    <h3>Player 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                
+                <div class="col-sm-4">
+                    <h3>Player 3</h3>        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <!--SOCKET IO CONNECTION-->
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+        </script>
+
+        <script>
+        
+            socket.emit('happy', {
+                reason:'its my birthday'
+
+            });
+
+            socket.on('serverMsg', function (data) {
+                console.log('server says: '+data.msg)
+            });
+
+        </script>
+
+
+
+
+
+
+    </body>
+
+</html>
